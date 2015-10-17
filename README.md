@@ -1,7 +1,7 @@
 # J
-J language stuff
+J language (http://www.jsoftware.com/) stuff
 
-startup.ijs -- defines verb use, must be in the home config directory  
+startup.ijs -- defines verb 'use', must be in the home config directory  
 
 tjd.ijs -- [extended] TJD date/time (http://en.wikipedia.org/wiki/Julian_day) functions  
 
