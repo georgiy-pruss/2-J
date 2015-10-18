@@ -5,4 +5,5 @@ extendijs =: 3 : 0
  if. isfile_j_ nn=.'C:\BIN\',nn do. nn else. nm end.
 )
 
+NB. 'use' can be used instead of 'require' and it looks first in 'C:\BIN'
 use =: 3 : 'require (extendijs&.>) cutnames_j_ y'
