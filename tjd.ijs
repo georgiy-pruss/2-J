@@ -32,7 +32,7 @@ TJD =: 0 : 0
    * julian day - it is absolute, so it needs tz in addition to dnf
 tz dnf4jd jd -> dnf, dnf for given timezone and julian day
 tz jd4dnf dnf -> jd, julian day considering timezone of dnf
-   jd_now tz -> jd, considering current (given) timezone
+tz jd_now'' -> jd, considering current (given) timezone
 tz s4jd jd -> 'YYYY.MM.DD HH:MM:SS'
    moonphase4jd jd -> float, moon phase day, 0..29.5+-0.3, max +-0.6
    mpx'' -> prints some moon phase data, experimental; see 'moon.ijs'
@@ -176,7 +176,7 @@ ymd_now =: 3 : '3{.6!:0'''''    NB. ymdhms_now is just 6!:0''
 hms_now =: 3 : '3}.6!:0'''''    NB. e.g. run s4ymdhms 6!:0''
 dn_now  =: 3 : 'dn4ymd 3{.6!:0'''''
 dnf_now =: 3 : '(dn4ymd 3{.t) + df4hms 3}.t=.6!:0'''''
-jd_now =: 3 : 'y jd4dnf dnf_now''''' NB. argument = TIME ZONE!
+jd_now =: 4 : 'x jd4dnf dnf_now''''' NB. left argument - TIME ZONE!
 
 NB. Format date/time with leading zeros for all but YEAR.
 s4hms =: [:}.[:,'r<:0>3.0'8!:2]                 NB. HH:MM:SS
