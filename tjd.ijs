@@ -153,10 +153,8 @@ NB. Return y m d h m s for day number with fraction
 ymdhms4dnf =: 3 : '(ymd4dn d),hms4df y-d=.<.y'
 
 NB. Return Julian Day Number -- JDN 0.0 is noon GMT Mon 1/1 4713 BC Julian
-NB. Optionally adjust for the time zone tz (in hours) -- left argument,
+NB. Adjust it for the time zone tz (in hours) -- left argument,
 NB. e.g. PST = _8, PDT = _7, EST = _5, EDT = _4, EET = 2, EEST = 3, etc.
-NB. To calculate JDN considering time and time zone, use this calls:
-NB. TZ jd4dnf dnf_now''
 jd4dnf =: 4 : 'y+2440000.5-x%24.0'
 
 NB. Return dnf from Julian Day Number and convert to given tz
