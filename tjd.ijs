@@ -9,7 +9,7 @@ NB. be specified. JDN and Unix time are absolute (moments in real time).
 NB. DN - day number = TJD w/o fraction. DF - day fraction. DNF - both.
 NB. Copyright (C) Georgiy Pruss 2013-2015
 
-TJD =: 0 : 0
+TJD =: 0 : 0 NB. self-documenting
    * conversions
    dn4ymd y m d -> dn, y can be 0 _1 _2 etc, m and d <1, >12 and 31
    ymd4dn dn -> y m d
