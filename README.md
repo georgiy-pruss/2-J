@@ -11,4 +11,4 @@ moon.ijs -- command line demo -- Moon phase etc.
 
 aes.ijs -- one-page AES implementation  
 
-j.vim -- my j syntax for Vim
+j.vim -- my j syntax for Vim (also in dotfiles -- no way to share a file)
