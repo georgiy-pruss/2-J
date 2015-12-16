@@ -11,4 +11,6 @@ moon.ijs -- command line demo -- Moon phase etc.
 
 aes.ijs -- one-page AES implementation  
 
+expressions.ijs -- math expression interpreter (like 3*(7.1+16bff^2)-5/2p1)  
+
 j.vim -- my j syntax for Vim (also in dotfiles -- no way to share a file)
