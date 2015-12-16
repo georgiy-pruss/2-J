@@ -2,14 +2,12 @@ NB. Simple expressions compiler (to RPN) and interpreter
 
 OPS=: '( ) + - * / % ^ | & ~ < > =' -.' '
 pr=: 0 0 0 3 3 4 4 4 5 3 4 5 2 2 2 0 {~ ]
-END=: 15
+ops=: [`[`]`+`-`*`%`(|~)`^`(23 b.)`(17 b.)`(22 b.)`<`>`=
 
 parse=: 3 : 0
   t=. 0$<0
-  for_c. ;: y-.' ' do.
-    if. _ = n=._".>c do.  t=.t,<1+OPS i. >c else.  t=.t,<0,n end.
-  end.
-  t, <END
+  for_c. ;: y-.' ' do. if. _ = n=._".>c do. t=.t,<1+OPS i. >c else. t=.t,<0,n end. end.
+  t,<>:#OPS
 )
 
 toRPN=: 3 : 0
@@ -22,22 +20,10 @@ toRPN=: 3 : 0
   end. r
 )
 
-'`AND OR XOR'=: (17 b.)`(23 b.)`(22 b.)
-
 calcRPN=: 3 : 0
-  s=.0$0
-  for_c. y do.
-    select. {.>c case. 0 do. s=.s,{:>c
-    case. 3 do. s=.(_2}.s),+/_2 _1{s  case. 4 do. s=.(_2}.s),-/_2 _1{s
-    case. 5 do. s=.(_2}.s),*/_2 _1{s  case. 6 do. s=.(_2}.s),%/_2 _1{s
-    case. 7 do. s=.(_2}.s),|~/_2 _1{s  case. 8 do. s=.(_2}.s),^/_2 _1{s
-    case. 9 do. s=.(_2}.s),OR/_2 _1{s  case. 10 do. s=.(_2}.s),AND/_2 _1{s
-    case. 11 do. s=.(_2}.s),XOR/_2 _1{s  case. 14 do. s=.(_2}.s),=/_2 _1{s
-    case. 12 do. s=.(_2}.s),</_2 _1{s  case. 13 do. s=.(_2}.s),>/_2 _1{s
-    end.
-  end. s
+  s=.0$0 for_c. y do. a=.>c if. 0={.a do. s=.s,{:a else. s=.(_2}.s),(a{ops)/_2 _1{s end. end. s
 )
 
-echo calcRPN toRPN parse {:ARGV
+echo calcRPN toRPN parse >{:ARGV
 
 exit 0 NB. TODO: https://en.wikipedia.org/wiki/Shunting-yard_algorithm
