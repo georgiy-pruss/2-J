@@ -10,6 +10,7 @@ moonphase.ijs -- calculation of the Moon phase
 moon.ijs -- command line demo -- Moon phase etc.  
 
 aes.ijs -- one-page AES implementation  
+md5.ijs -- pure J md5 implementation  
 
 expressions.ijs -- math expression interpreter (like 3*(7.1+16bff^2)-5/2p1)  
 
