@@ -6,7 +6,7 @@ ops=: [`[`]`+`-`*`%`(|~)`^`(23 b.)`(17 b.)`(22 b.)`<`>`=
 
 parse=: 3 : 0
   t=. 0$<0
-  for_c. ;: y-.' ' do. if. _ = n=._".>c do. t=.t,<1+OPS i. >c else. t=.t,<0,n end. end.
+  for_c. ;: y-.' ' do. if. _j_-:n=._j_".>c do. v=.>:OPS i.>c else. v=.0,n end. t=.t,<v end.
   t,<>:#OPS
 )
 
