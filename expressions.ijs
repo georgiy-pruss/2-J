@@ -21,7 +21,7 @@ rpn=: 3 : 0 NB. reorder tokens into RPN sequence, no '(' ')' of course
 )
 
 calculate=: 3 : 0 NB. interpret RPN 'program'
-  s=.0$0
+  s=. 0$0
   for_c. y do. if. 0={.a=.>c do. s=.s,{:a else. s=.(_2}.s),(a{ops)/_2 _1{s end. end.
   (":s),' (#',(('0123456789abcdef'{~16#.^:_1])<.{.s),')'
 )
