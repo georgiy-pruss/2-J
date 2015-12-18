@@ -1,5 +1,16 @@
 NB. color output in Windows console
 
+COLORS=: 0 : 0
+[handle] set_pos row;col (or row,col)
+[handle] set_clr color (rather internal function)
+  handle - e.g. std_out_handle or std_err_handle
+  color - integer, of HRGBhrge (background-foreground)
+[bg] sc fg (or sc bg,fg) (default bg is black)
+  color must be of 'kbgcrmywKBGCRMYW'
+E.g. sc 'w' [ 'world!' 1!:2(2) [ sc 'Wb' [ 'hello ' 1!:2(4) [ sc 'bY'
+NB. 1!:2(4) prints w/o ending LF
+)
+
 'std_input_handle std_out_handle std_err_handle'=:'kernel32 GetStdHandle >i x'&cd"0(-10 11 12)
 
 set_pos =: 3 : 0  NB. [handle] set_pos row;col (or row,col)
@@ -36,6 +47,3 @@ sc =: 3 : 0  NB. [bg] sc fg (or sc bg,fg)
   set_clr f+b*16
   0 0$0
 )
-
-NB. 1!:2(4) prints w/o ending LF
-NB. sc 'w' [ 'world!' 1!:2(2) [ sc 'Wb' [ 'hello ' 1!:2(4) [ sc 'bY'
