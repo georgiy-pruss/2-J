@@ -10,5 +10,7 @@ bad_complexs =. _j_ 1j2p1 _3.7x_2j_5e_4
 others =. _ __ _. ; a:
 foo =. 3 : 0
   for_i. i.20 do. echo i end. NB. for_i. or at least for_ must be hilited
-  select. case. fcase. for. assert. break. continue. try. catch. catcht. throw. return. 
+  label_L. goto_L. try. catch. catchd. catcht. throw.
+  assert. select. case. fcase. for. break. continue. return.
+  while. whilst. if. else. elseif. do. end. NB. these are ok
 )
