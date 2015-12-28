@@ -7,14 +7,21 @@ NB. J implementation -- (C) 2003 Oleg Kobchenko;
 NB.
 NB. 09/04/2003 Oleg Kobchenko
 NB. 03/31/2007 Oleg Kobchenko j601, JAL
-NB. 12/17/2015 G.Pruss j803-64
+NB. 12/17/2015, 12/28/2015 G.Pruss j803, 32/64-bit
 
 coclass 'pcrypt'
 
 NB. lt= (*. -.)~   gt= *. -.   ge= +. -.   xor= ~:
 '`lt gt ge xor and or sh'=: (20 b.)`(18 b.)`(27 b.)`(22 b.)`(17 b.)`(23 b.)`(33 b.)
-rot=: 16bffffffff and sh or ] sh~ 32 -~ [ NB. (y << x) | (y >>> (32 - x))
-add=: ((16bffffffff&and)@+)"0
+3 : 0 ''
+  if. IF64 do.
+    rot=: 16bffffffff and sh or ] sh~ 32 -~ [ NB. (y << x) | (y >>> (32 - x))
+    add=: ((16bffffffff&and)@+)"0
+  else. NB. 32-bit system
+    rot=: 32 b.
+    add=: (+&(_16&sh) (16&sh@(+ _16&sh) or and&65535@]) +&(and&65535))"0
+  end. 0
+)
 hexlist=: tolower@:,@:hfd@:,@:(|."1)@(256 256 256 256&#:)
 
 cmn=: 4 : 0
