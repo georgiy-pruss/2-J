@@ -7,21 +7,16 @@ NB. J implementation -- (C) 2003 Oleg Kobchenko;
 NB.
 NB. 09/04/2003 Oleg Kobchenko
 NB. 03/31/2007 Oleg Kobchenko j601, JAL
-NB. 12/17/2015, 12/28/2015 G.Pruss j803, 32/64-bit
+NB. 12/17/2015 G.Pruss j803 64-bit
+NB. ~60+ times slower than in the jqt library
+NB. see md5-32.ijs for the original 32-bit code
 
 coclass 'pcrypt'
 
 NB. lt= (*. -.)~   gt= *. -.   ge= +. -.   xor= ~:
 '`lt gt ge xor and or sh'=: (20 b.)`(18 b.)`(27 b.)`(22 b.)`(17 b.)`(23 b.)`(33 b.)
-3 : 0 ''
-  if. IF64 do.
-    rot=: 16bffffffff and sh or ] sh~ 32 -~ [ NB. (y << x) | (y >>> (32 - x))
-    add=: ((16bffffffff&and)@+)"0
-  else. NB. 32-bit system
-    rot=: 32 b.
-    add=: (+&(_16&sh) (16&sh@(+ _16&sh) or and&65535@]) +&(and&65535))"0
-  end. 0
-)
+rot=: 16bffffffff and sh or ] sh~ 32 -~ [ NB. (y << x) | (y >>> (32 - x))
+add=: ((16bffffffff&and)@+)"0
 hexlist=: tolower@:,@:hfd@:,@:(|."1)@(256 256 256 256&#:)
 
 cmn=: 4 : 0
@@ -73,7 +68,7 @@ hexlist r
 
 md5_z_=: md5_pcrypt_
 
-NB. standart tests
+NB. standart tests -- remove most of them in production
 assert 'd41d8cd98f00b204e9800998ecf8427e' -: md5 ''
 assert '7215ee9c7d9dc229d2921a40e899ec5f' -: md5 ' '
 assert '0cc175b9c0f1b6a831c399e269772661' -: md5 'a'
