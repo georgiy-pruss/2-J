@@ -15,9 +15,9 @@ endif
 syn keyword jStatement      load loadd require while whilst for
 syn keyword jStatement      try catch catcht catchd throw return break continue assert
 syn keyword jConditional    if do else elseif end select case fcase
-syn match   jConditional    "\<for_[0-9a-z]\+\>"
-syn match   jConditional    "\<goto_[0-9a-z]\+\>"
-syn match   jConditional    "\<label_[0-9a-z]\+\>"
+syn match   jConditional    "\<for_[0-9a-zA-Z]\+\>"
+syn match   jConditional    "\<goto_[0-9a-zA-Z]\+\>"
+syn match   jConditional    "\<label_[0-9a-zA-Z]\+\>"
 "syn match  jOperator       "=[.:]"
 
 syn match   jFunction "\(\h\w*\)\( *=[.:] *[1234] \+:\)\@="
@@ -30,14 +30,14 @@ syn region  jString   start=+'+ end=+'+
 "contains=jSpecial
 "syn match  jSpecial  contained "''"
 
+"not done: many e-p-x, ad and ar complex numbers
+"test: 1, 1r3 - 2e5 ^ _3.44,3.6e8 ; 3e_4 1.1p2 1j9 1.1j_3 _ = _. = _: + 1a2 15b999 16bff a. a: !
+syn match   jNumber   "\<_\?[0-9r]\+\%(\.[0-9r]\+\)\?\%([epx]_\?\d\+\)\?\%(j_\?[0-9r]\+\%(\.[0-9r]\+\)\?\%([epx]_\?\d\+\)\?\)\?\>"
 syn match   jNumber   "\<_\?\d\+b[0-9a-z]\+\>"
-syn match   jNumber   "\<_\?\d\+\>"
+syn match   jNumber   "\<_\?\d\+x\>"
 syn match   jNumber   "\<_\>"
-syn match   jNumber   "\<_[_.]"
+syn match   jNumber   "\<_[_.:]"
 syn match   jNumber   "\<a[:.]"
-syn match   jNumber   "\<_\?\d\+[eE]_\?\d\+\>"
-"syn match  jNumber   "\<0[oO]\=\o\+[Ll]\=\>"
-"syn match  jNumber   "\<0[xX]\x\+[Ll]\=\>"
 "syn match  jNumber   "\<\%([1-9]\d*\|0\)[Ll]\=\>"
 "syn match  jNumber   "\<\d\+\.\%([eE][+-]\=\d\+\)\=[jJ]\=\%(\W\|$\)\@="
 "syn match  jNumber   "\%(^\|\W\)\@<=\d*\.\d\+\%([eE][+-]\=\d\+\)\=[jJ]\=\>"
