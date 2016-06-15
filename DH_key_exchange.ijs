@@ -52,7 +52,8 @@ s =: 0 : 0
 msplit =: [: -.&a:<;._2@,~
 fmt =: 3 : '(32{.t),''...'',_32{.t=.":y'
 
-p =: (2^32x)#. x:&(".&('16b'&,))&> ' ' msplit tolower s rplc LF;' '
+p =: (2^32x)#. ".@('16b'&,)@> ' 'msplit tolower s rplc LF;' '   NB.  4.56ms
+NB.  (16x#.'0123456789abcdef'i.]) tolower s rplc LF;'';' ';''   NB. 20.94ms
 echo 'p   ',fmt p NB. 2467 decimal digits
 
 g =: 2x
