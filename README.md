@@ -11,6 +11,8 @@ moonphase.ijs -- calculation of the Moon phase
 moonsun.ijs -- astronomical data about Moon and Sun  
 startup.ijs -- defines verb 'use', must be in the home config directory  
 tjd.ijs -- [extended] TJD date/time (http://en.wikipedia.org/wiki/Julian_day) functions  
+DH_key_exchage.ijs -- example of Diffie-Hellman key exchange algorithm  
+div9.ijs -- nine digits task  
 
 j.vim -- my j syntax for Vim (also in dotfiles -- no way to share a file)
 
