@@ -1,7 +1,7 @@
 # J
 **J language** (http://www.jsoftware.com/) stuff
 
-acf.ijs -- Analyze Cat Foot program =^_^=  
+acf.ijs -- Analyze Cat Food program =^_^=  
 aes.ijs -- one-page AES implementation  
 colors.ijs -- colorful output (on Windows only; Unix -- TODO)  
 combs.ijs -- iterative combinations  
