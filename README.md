@@ -11,7 +11,7 @@ md5.ijs -- pure J md5 implementation
 moon.ijs -- command line demo -- Moon phase etc.  
 moonphase.ijs -- calculation of the Moon phase  
 moonsun.ijs -- astronomical data about Moon and Sun  
-permutations.ijs -- not made iterative, b/c use better A.
+permutations.ijs -- not made iterative, b/c use better A.  
 startup.ijs -- defines verb 'use', must be in the home config directory  
 tjd.ijs -- [extended] TJD date/time (http://en.wikipedia.org/wiki/Julian_day) functions  
 
