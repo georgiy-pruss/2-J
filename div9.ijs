@@ -57,6 +57,6 @@ NB. one-liner is even faster: 2.60s [1.85s at work]
 s =: 6!:1''
 echo '123456789'A.~(>:^:(-.&(([:*/(1+i.9)(4 :'0=y|".y{.x')"_ 0~])@(A.&'123456789')))^:_)0
 e =: 6!:1''
-echo '(',(":e-s),'s)' NB. 2.60s
+echo '(',(":e-s),'s)' NB. 2.60s ......... but Python is 5+ times faster
 
 exit 0
